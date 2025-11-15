@@ -21,4 +21,22 @@ later.
 
 ![](pictures/Schego%20M2K3%20Topview.jpg)
 
-I've bougt a M2K3 since it is the biggest Model and i got it used a bit less expensive. The cool thing about this (and probaply all Schego models), is that you can easily disassemble it.
+I've bougt a M2K3 since it is the biggest Model and i got it used a bit less expensive. The cool thing about this (and probaply all Schego models), is that you can easily disassemble it. You even get replacements like the membranes from the manufacturer.
+
+![](pictures/Schego%20M2K3%20Teilzerlegt.jpg)
+
+And you can pretty easily change it from vacuum to compressor and vice versa by just rotanting both these valve plates.
+
+![](pictures/Schego%20M2K3%20Ventile.jpg)
+
+So alltogother, this pump seems to be exactly what I was looking for. Now it only needs to be converted to low voltage.
+
+### Converting for high voltage to low voltage coil
+
+Since the pump will later be operated with about 12V, the configuration of the coil of the electromagnetic drive has to be reconfigured. In my case, it had previously 1.2Kohm, which is obviously far too much for 12V operation, as I had no good alternative, I decided to unwind the coil and rewind it with several wires in parallel. On my coil there was a little over 840m of wire, which I initially wound by 2, 20m apart rods. This turned out to be a problem in retrospect, because with the resulting 40 parallel wires with a length of 20m I achieved a resistance of 1ohm. Which unfortunately was a bit too little to drive this with the ASC. So I had to rebuild the whole thing again to 10 parallel wires, each 80m. With which I achieved a resistance of 13Ohm. This is also very suitable for 12-24V, for 5-12V I would rather recommend 20 parallel wires, each 40m which would then have to end up at slightly below 4Ohm. Finally, the new winding must of course be rewinded, and the paint at the new ends has to be burned off.
+
+### Configuration of the ASC
+
+In general there is not that much to do to the ASC. Its has a DRV8231A brushed motor driver, witch is perfectly capabil of driving a Coil and even has overtemp and overcurrent protection. So the coil gets connected to the motor pins of th ASC, the pot pins stay unused at this state of the project. *(could be used for pressure feedback in the future)* Next the given Software is flashed to the ASC. In my case the pump was more effective at 45Hz that the Original 50, so you mayby wanne try out a bis as well. And now all that's left to do is close the case, and the pump can be used.
+
+![](pictures/Schego%20M2K3%20mit%20ASC.jpg)
