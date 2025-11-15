@@ -26,6 +26,6 @@ Since the pump will later be operated with about 12V, the configuration of the c
 
 ### Configuration of the ASC
 
-In general there is not that much to do to the ASC. Its has a [DRV8231A](https://www.ti.com/de/lit/gpn/drv8231a) brushed motor driver, witch is perfectly capabil of driving a Coil and even has overtemp and overcurrent protection. So the coil gets connected to the motor pins of th ASC, the pot pins stay unused at this state of the project. *(could be used for pressure feedback in the future)* Next the given Software is flashed to the ASC. In my case the pump was more effective at 45Hz that the Original 50, so you mayby wanne try out a bis as well. And now all that's left to do is close the case, and the pump can be used.
+In general there is not that much to do to the ASC. Its has a [DRV8231A](https://www.ti.com/de/lit/gpn/drv8231a) brushed motor driver, witch is perfectly capabil of driving a Coil and even has overtemp and overcurrent protection. So the coil gets connected to the motor pins of th ASC, the pot pins stay unused at this state of the project. *(could be used for pressure feedback in the future)* Next the given Software is flashed to the ASC. In my case the pump was more effective at 45Hz than the original 50Hz, so you mayby wanna try out a bit as well. And now all that's left to do is close the case, and the pump can be used.
 
 ![](pictures/Schego%20M2K3%20mit%20ASC.jpg)
