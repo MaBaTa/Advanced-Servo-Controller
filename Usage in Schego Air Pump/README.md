@@ -4,18 +4,7 @@ This is a subproject of the usage of the ASC as a inverter for a membrane compre
 
 ### Prestory:
 
-Since I have been looking for a small compressor that is quiet and high 
-quality for a long time, I was very happy when I came across the company
- Schego. They produce a small range of aquarium / industrial membrane 
-pumps. Since I also intend to use them in the area of air-brush & 3D
- printers, I was very happy to have finally found a quieter and more 
-robust version that also is Made in Germany, after all the China compressors. The only
- catch is of course the price, whereas the 230V variants are perfectly 
-appropriate priced. But since I need 12V for most applications, these were not 
-really an option for me. So I came up with the idea of simply buying a 
-230V version, and operating it with the help of the ASC. For this to 
-work, however, the electromagnet must also be adapted, more on this 
-later.
+Since I have been looking for a small compressor that is quiet and high quality for a long time, I was very happy when I came across the company [Schego](https://schego.de/de/hobby-freizeit/aquarientechnik/membranpumpen/).They produce a small range of aquarium / industrial membrane pumps. Since I also intend to use them in the area of air-brush & 3D printers, I was very happy to have finally found a quieter and more robust version that also is Made in Germany, after all the China compressors. The only catch is of course the price, whereas the 230V variants are perfectly appropriate priced. But since I need 12V for most applications, these were not really an option for me. So I came up with the idea of simply buying a 230V version, and operating it with the help of the ASC. For this to work, however, the electromagnet must also be adapted, more on this later.
 
 ### The Schego M2K3:
 
@@ -37,6 +26,6 @@ Since the pump will later be operated with about 12V, the configuration of the c
 
 ### Configuration of the ASC
 
-In general there is not that much to do to the ASC. Its has a DRV8231A brushed motor driver, witch is perfectly capabil of driving a Coil and even has overtemp and overcurrent protection. So the coil gets connected to the motor pins of th ASC, the pot pins stay unused at this state of the project. *(could be used for pressure feedback in the future)* Next the given Software is flashed to the ASC. In my case the pump was more effective at 45Hz that the Original 50, so you mayby wanne try out a bis as well. And now all that's left to do is close the case, and the pump can be used.
+In general there is not that much to do to the ASC. Its has a [DRV8231A](https://www.ti.com/de/lit/gpn/drv8231a) brushed motor driver, witch is perfectly capabil of driving a Coil and even has overtemp and overcurrent protection. So the coil gets connected to the motor pins of th ASC, the pot pins stay unused at this state of the project. *(could be used for pressure feedback in the future)* Next the given Software is flashed to the ASC. In my case the pump was more effective at 45Hz that the Original 50, so you mayby wanne try out a bis as well. And now all that's left to do is close the case, and the pump can be used.
 
 ![](pictures/Schego%20M2K3%20mit%20ASC.jpg)
