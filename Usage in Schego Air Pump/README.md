@@ -4,7 +4,7 @@
 
 This is a subproject within the overall initiative to use the [ASC](https://github.com/MaBaTa/Advanced-Servo-Controller) as an inverter for a membrane compressor.
 
-### Motivatiom:
+### Motivation:
 
 For a long time, I have been looking for a small compressor that is quiet and made of high quality. I was excited when I came across the company [Schego](https://schego.de/de/hobby-freizeit/aquarientechnik/membranpumpen/).They produce a small range of aquarium and industrial membrane pumps. Since I also intend to use them in airbrushing and 3D printing, I was thrilled to have finally found a quieter and more robust version that is also made in Germany, after using poor quality compressors from China. The only catch, of course, are the prices. The 230V variants are appropriately priced, but since I need 12 V for most applications, these were not really an option for me. So I came up with the idea of simply buying a 230V version and operating it with the help of the ASC. For this to work, however, the electromagnet must also be adapted, more on this later.
 
