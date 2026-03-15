@@ -2,6 +2,9 @@
 #include <megaTinyCore.h>
 //#include <SoftwareSerial.h>
 #include <SendOnlySoftwareSerial.h>
+//#include <AdvancedPID.h>
+//#include <ArduPID.h>
+#include <PID.h>
 
 #define MOTOR_PWM1_PIN PIN_PA7
 #define MOTOR_PWM2_PIN PIN_PA1
@@ -10,11 +13,15 @@
 #define PWM_IN_PIN PIN_PA3
 //DO NOT USE UPDI PA0
 
-#define RINGGROESSE 100
+double setpoint = 512;
+double input;
+double output;
 
-int input = 0;
-int output = 0;
-SendOnlySoftwareSerial serial (PWM_IN_PIN);
+//int input = 0;
+//int output = 0;
+//SendOnlySoftwareSerial serial (PWM_IN_PIN);
+
+arc::PID<double> pid(0.3,0.2,0.0);
 
 void setup() {
   pinMode(MOTOR_PWM1_PIN, OUTPUT);
@@ -23,22 +30,54 @@ void setup() {
   pinMode(MOTOR_IPROPI_PIN, INPUT);
   analogReference(VDD); //INTERNAL2V5
   
-  serial.begin(9600);
+  //serial.begin(9600);
 
   digitalWrite(MOTOR_PWM1_PIN, LOW);
   digitalWrite(MOTOR_PWM2_PIN, LOW);
 
-  serial.println("= ASC Boot =");
+  //serial.println("= ASC Boot =");
+
+  //
 
 }
 
 void loop() {
+  input = adcAvg(POTI_POS_PIN, 50);
+  //setpoint = 512.0; // Target value
+  pid.setTarget(512);
+  if (input != 2000)
+  {
+    pid.setInput(input);
+    driveMotor(pid.getOutput());
+  }
+  else
+  {
+    driveMotor(0);
+  }
 
-  //target(512);
-  serial.println(adcAvg(POTI_POS_PIN, 50));
   
-  delay(1);
   
+  //delay(2);
+  
+}
+
+void driveMotor(int val)
+{
+  if(val == 0)
+  {
+    analogWrite(MOTOR_PWM1_PIN, 255);
+    analogWrite(MOTOR_PWM2_PIN, 255);
+  }
+  else if (val > 0)
+  {
+    analogWrite(MOTOR_PWM1_PIN, (val)+5);
+    analogWrite(MOTOR_PWM2_PIN, 0);
+  }
+  else
+  {
+    analogWrite(MOTOR_PWM2_PIN, (-val)+5);
+    analogWrite(MOTOR_PWM1_PIN, 0);
+  }
 }
 
 /*void target(uint16_t target)
@@ -82,17 +121,17 @@ uint16_t adcAvg(uint8_t pin, uint8_t count)
   {
     avg += (float)ringSpeicher[i] / count;
   }
-  serial.print("AVG: ");
-  serial.print(avg);
+  //serial.print("AVG: ");
+  //serial.print(avg);
 
   int64_t stdDev = 0;
   for(int i = 0; i<count; i++)
   {
     stdDev += abs(avg - ringSpeicher[i]);
   }
-  serial.print(" stdDev: ");
-  serial.println((int16_t)stdDev);
+  //serial.print(" stdDev: ");
+  //serial.println((int16_t)stdDev);
 
-  if (stdDev > 10) avg = 2000;
+  if (stdDev > 20) avg = 2000;
   return avg;
 }
