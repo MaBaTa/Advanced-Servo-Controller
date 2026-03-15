@@ -4,6 +4,12 @@
 	(generator_version "9.0")
 	(uuid "52c46768-b2d5-4834-ab19-e0ce4485e671")
 	(paper "A4")
+	(title_block
+		(title "Advanced Servo Controller")
+		(rev "1")
+		(company "Privat")
+		(comment 1 "Tristan Wieczorek")
+	)
 	(lib_symbols
 		(symbol "Connector:Conn_01x04_Pin"
 			(pin_names
@@ -2253,7 +2259,7 @@
 			)
 		)
 		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
-			(at 152.4 114.554 90)
+			(at 152.4 116.078 90)
 			(effects
 				(font
 					(size 1.27 1.27)
